@@ -6,6 +6,8 @@ public class Collectible : MonoBehaviour
 {
     public float rotationSpeed;
 
+    public GameObject onCollectEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +23,13 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
 
+        // instantiate the particle effect
+        
+        Instantiate(onCollectEffect, transform.position, transform.rotation);
+
     // Destroy the collectible
 
-    Destroy(gameObject);
+        Destroy(gameObject);
 
 }
 
